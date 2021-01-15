@@ -22,27 +22,23 @@ class Faction:
         setattr( cls, faction.__name__, faction )
         return faction
 
-#@Faction.add
+@Faction.add
 class Innocent:
     "The innocent villagers must try and not to be killed or being mistaken for a wolf and lynched. They do not know anybody else's role."
     group= "villagers"
-Faction.add(Innocent)
-#@Faction.add
+@Faction.add
 class Werewolf:
     "Wolves hunt in packs at night, killing only one person. The wolves know who the other wolves are."
     group = "wolves"
-Faction.add(Werewolf)
-#@Faction.add
+@Faction.add
 class Vampire:
     "Vampires attack at night independantly. Each vampire may attack a different target, but does not know anything about the other vampires."
     group = "vampires"
-Faction.add(Vampire)
-#@Faction.add
+@Faction.add
 class Zombie:
     "Brains..."
     group = "zombies"
-Faction.add(Zombie)
-#@Faction.add
+@Faction.add
 class Hamster:
     "Sooo cute!!"
     group = "hamsters"
@@ -64,38 +60,34 @@ class Role:
     inventory = []
 
 @Roles.add
-Faction.add(Hamster)
 class Villager(Role):
     #"The base villager role. All villagers should be a subclass of this."
     "This role is the simplest: there is nothing to do at night but hope to survive."
     faction = Faction.Innocent
 
-#@Roles.add
+@Roles.add
 class Witch(Villager):
     "This role gives the player an advantage in knowing who will die each night, as well as two potions, each can only be used once. One potion saves the life of a player due to die, the other allows them to kill somebody of their choice."
     inventory = ["beer","cider"]
 
 @Roles.add
-Roles.add(Witch)
 class Inspector(Villager):
     "This role allows the player to inspect a character every night and discover their role."
 
-#@Roles.add
+@Roles.add
 class Hunter(Villager):
     "This role gives the player a bargaining chip as, when they are due to die, they will kill somebody else as well."
 
 @Roles.add
-Roles.add(Hunter)
 class Cupid(Villager):
     "This role causes the player to know who the lovers are. At the start of the game they may also choose the lovers."
 
-#@Roles.add
+@Roles.add
 class Wolf(Role):
     "This role gives the player the oppurtinity to make kills each night, as part of a pack."
     faction = Faction.Werewolf
 
 @Roles.add
-Roles.add(Wolf)
 class Vampire(Role):
     "This role gives the player the oppurtunity to kill every night, independant of other vampires"
     faction = Faction.Vampire
